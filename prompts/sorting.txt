@@ -1,0 +1,50 @@
+<cot>Simulate this Python code.
+@code@
+
+Think step by step and then reply with the correct result for the following input value @input@.
+</cot>
+
+<kshot-cot>@illustration@
+
+Now, for the input value @input@, think step by step and simulate the Python function. Then then reply with the correct result.
+</kshot-cot>
+
+<code>Provide a step-by-step simulation of this Python code.
+@code@
+
+Think step by step and then reply, for the input value @input@, with the correct output of the code. In particular:
+# 1. Provide a step-by-step simulation.
+# 2. Report the trace of the program at the end of each iteration.
+# 3. Think step by step and then reply with the correct result for input the input value @input@. Report the result between <result></result> tags, so for example <result>[5, 7, 9]</result>.
+</code>
+
+<kshot-code>@illustration@
+
+Now, Provide a step-by-step simulation of this Python code.
+@code@
+
+In particular, for the input value @input@:
+# 1. Provide a step-by-step simulation.
+# 2. Report the solution at the end of each iteration.
+# 3. Think step by step and then reply with the correct result.
+</kshot-code>
+
+<self-consistency>I give you this Python code.
+@code@
+
+After that, reply with the correct result for input the input value @input@. Think step by step and report the result between <result></result> tags, so for example <result>[5, 7, 9]</result>.
+</self-consistency>
+
+<code-self-consistency>I give you this Python code.
+@code@
+
+Think step by step and then reply with the correct result for input the input value @input@. In particular:
+# 1. Simulate the program instruction by instruction.
+# 2. Report the trace of the program at the end of each instruction.
+# 3. Think step by step and reply with the correct result for input the input value @input@ at the end of the computation. Report the result between <result></result> tags, so for example <result>[5, 7, 9]</result>.
+</code-self-consistency>
+
+<cot-llama>Given this Python function:
+@code@
+The result for the following input value @input@ is
+</cot-llama>

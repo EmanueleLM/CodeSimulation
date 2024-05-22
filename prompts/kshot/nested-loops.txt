@@ -1,0 +1,93 @@
+<input>
+3
+</input>
+
+<example1>
+def f(n):
+	n_0=1
+	for i in range(n):
+		n_0*=-1
+	return sum([n_0])
+</example1>
+
+<trace1>
+0: n_0=-1
+1: n_0=1
+2: n_0=-1
+</trace1>
+
+<vtrace-value1>
+-1
+</vtrace-value1>
+
+<example2>
+def f(n):
+	n_0=1; n_1=1
+	for _ in range(n):
+		n_0*=-1
+		for _ in range(n):
+			n_1*=1
+	return sum([n_0, n_1])
+</example2>
+
+<trace2>
+0: n_0=-1, n_1=1
+1: n_0=-1, n_1=1
+2: n_0=-1, n_1=1
+3: n_0=1, n_1=1
+4: n_0=1, n_1=1
+5: n_0=1, n_1=1
+6: n_0=-1, n_1=1
+7: n_0=-1, n_1=1
+8: n_0=-1, n_1=1
+</trace2>
+
+<vtrace-value2>
+0
+</vtrace-value2>
+
+<example3>
+def f(n):
+	n_0=1; n_1=1; n_2=1
+	for i in range(n):
+		n_0*=1
+		for j in range(n):
+			n_1*=1
+			for k in range(n):
+				n_2*=1
+	return sum([n_0, n_1, n_2])
+</example3>
+
+<trace3>
+0: n_0=1, n_1=1, n_2=1
+1: n_0=1, n_1=1, n_2=1
+2: n_0=1, n_1=1, n_2=1
+3: n_0=1, n_1=1, n_2=1
+4: n_0=1, n_1=1, n_2=1
+5: n_0=1, n_1=1, n_2=1
+6: n_0=1, n_1=1, n_2=1
+7: n_0=1, n_1=1, n_2=1
+8: n_0=1, n_1=1, n_2=1
+9: n_0=1, n_1=1, n_2=1
+10: n_0=1, n_1=1, n_2=1
+11: n_0=1, n_1=1, n_2=1
+12: n_0=1, n_1=1, n_2=1
+13: n_0=1, n_1=1, n_2=1
+14: n_0=1, n_1=1, n_2=1
+15: n_0=1, n_1=1, n_2=1
+16: n_0=1, n_1=1, n_2=1
+17: n_0=1, n_1=1, n_2=1
+18: n_0=1, n_1=1, n_2=1
+19: n_0=1, n_1=1, n_2=1
+20: n_0=1, n_1=1, n_2=1
+21: n_0=1, n_1=1, n_2=1
+22: n_0=1, n_1=1, n_2=1
+23: n_0=1, n_1=1, n_2=1
+24: n_0=1, n_1=1, n_2=1
+25: n_0=1, n_1=1, n_2=1
+26: n_0=1, n_1=1, n_2=1
+</trace3>
+
+<vtrace-value3>
+3
+</vtrace-value3>

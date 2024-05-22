@@ -1,0 +1,58 @@
+<cot>Simulate this Python code.
+@code@
+
+Think step by step, and then reply only with the numerical value of the sum of all the variables at the end of the computation. Report the result between <result></result> tags, so for example <result>1</result>.
+</cot>
+
+<kshot-cot>@illustration@
+
+Now, simulate this Python code.
+@code@
+
+Think step by step and then reply only with the numerical value of the sum of all the variables at the end of the computation. Report the result between <result></result> tags, so for example <result>1</result>.
+</kshot-cot>
+
+<code>Simulate this Python code.
+@code@
+
+In particular:
+# 1. Simulate the program instruction by instruction.
+# 2. Report the trace of the program at the end of each iteration.
+# 3. Think step by step and then reply only with the numerical value of the sum of all the variables at the end of the computation. Report the result between <result></result> tags, so for example <result>1</result>.
+</code>
+
+<kshot-code>@illustration@
+
+Now, simulate this Python code.
+@code@
+
+In particular:
+# 1. Simulate the program instruction by instruction.
+# 2. Report the trace of the program at the end of each iteration.
+# 3. Think step by step and then reply the numerical value of the sum of all the variables at the end of the computation. Report the result between <result></result> tags, so for example <result>1</result>.
+</kshot-code>
+
+<self-consistency>I give you this Python code.
+@code@
+
+After that, reply only with the numerical value of the sum of all the variables at the end of the computation. Think step by step and report the result between <result></result> tags, so for example <result>1</result>.
+</self-consistency>
+
+<cot-llama>Given this Python code.
+@code@
+
+The value of all the variables at the end of the computation is
+</cot-llama>
+
+<tree-of-thoughts>
+I give you this Python code.
+@code@
+
+I ask you to rreply only with the numerical value of the sum of all the variables at the end of the computation.
+In doing so, follow these precise instructions:
+# 1. Split the program in @tot-chunks@ sequential chunks.
+# 2. For the first chunk, query @tot-experts@ independent experts to simulate step by step the chunk and, at the end of all the simulations, select the most promising solution via majority vote. Always select a solution. A solution is the value of each variable at the end of the simulation.
+# 3. Use the most promising solution to query the same @tot-experts@ expert models to solve the next chunk, and obtain another set of solutions. You chose again the most promising solution via majority vote. Always select a solution. The new solution is the value of each variable at the end of the simulation.
+# 4. Repeat the process of point #3 for each of the remaining chunks and, at the end of the whole code, select the most promising solution via majority vote. The new solution is the value of each variable at the end of the simulation.
+# 5. Use the final solution to reply with the numerical value of the sum of all the variables at the end of the computation. Report the result between <result></result> tags, so for example <result>1</result>.
+</tree-of-thoughts>

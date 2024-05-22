@@ -1,0 +1,88 @@
+<cot>I give you this Python code.
+@code@
+
+Think step by step and reply with the numerical value a@v@ has at the end of the computation. Report the result between <result></result> tags, so for example <result>1</result>.
+</cot>
+
+<kshot-cot>@illustration@
+
+Now, I give you this Python code.
+@code@
+
+Think step by step and reply with the numerical value a@v@ has at the end of the computation. Report the result between <result></result> tags, so for example <result>1</result>.
+</kshot-cot>
+
+<code>I give you this Python code.
+@code@
+
+Think step by step and then reply with the number of a@v@ at the end of the code. In particular:
+# 1. Simulate the program instruction by instruction.
+# 2. Report the trace of the program at the end of each instruction.
+# 3. Think step by step and reply with the numerical value a@v@ has at the end of the computation. Report the result between <result></result> tags, so for example <result>1</result>.
+</code>
+
+<kshot-code>@illustration@
+
+Now, I give you this Python code.
+@code@
+
+Think step by step and then reply with the number of a@v@ at the end of the code. In particular:
+# 1. Simulate the program instruction by instruction.
+# 2. Report the trace of the program at the end of each instruction.
+# 3. Think step by step and reply with the numerical value a@v@ has at the end of the computation. Report the result between <result></result> tags, so for example <result>1</result>.
+</kshot-code>
+
+<cot-llama>Given this Python code.
+@code@
+
+The value a@v@ has at the end of the computation is
+</cot-llama>
+
+<cot-linebyline>
+I give you this Python code. I will provide one instruction at a time. 
+After each instruction, output the state of the variables as they were comments.
+For example, for the following line of code that initialize the variables:
+a0=7; a1=2; a2=-8
+You should produce:
+# a0=7, a1=2, a2=-8
+
+While for the following instruction:
+a0 += a2
+You should produce:
+# a0=9, a1=2, a2=-8
+
+The program will end with the exit() instruction.
+After that, reply with the numerical value a@v@ has at the end of the computation. Report the result between <result></result> tags, so for example <result>1</result>.
+Think step by step.
+
+These are the instructions:
+@code@
+</cot-linebyline>
+
+<self-consistency>I give you this Python code.
+@code@
+
+Think step by step and reply with the numerical value a@v@ has at the end of the computation. Report the result between <result></result> tags, so for example <result>1</result>.
+</self-consistency>
+
+<code-self-consistency>I give you this Python code.
+@code@
+
+Think step by step and then reply with the number of a@v@ at the end of the code. In particular:
+# 1. Simulate the program instruction by instruction.
+# 2. Report the trace of the program at the end of each instruction.
+# 3. Think step by step and reply with the numerical value a@v@ has at the end of the computation. Report the result between <result></result> tags, so for example <result>1</result>.
+</code-self-consistency>
+
+<tree-of-thoughts>
+I give you this Python code.
+@code@
+
+I ask you to reply with the numerical value a@v@ has at the end of the computation.
+In doing so, follow these precise instructions:
+# 1. Split the program in @tot-chunks@ sequential chunks.
+# 2. For the first chunk, query @tot-experts@ independent experts to simulate step by step the chunk and, at the end of all the simulations, select the most promising solution via majority vote. Always select a solution. A solution is the value of each variable at the end of the simulation.
+# 3. Use the most promising solution to query the same @tot-experts@ expert models to solve the next chunk, and obtain another set of solutions. You chose again the most promising solution via majority vote. Always select a solution. The new solution is the value of each variable at the end of the simulation.
+# 4. Repeat the process of point #3 for each of the remaining chunks and, at the end of the whole code, select the most promising solution via majority vote. The new solution is the value of each variable at the end of the simulation.
+# 5. Use the final solution to report the numerical value a@v@ has at the end of the computation. Report the result between <result></result> tags, so for example <result>1</result>.
+</tree-of-thoughts>

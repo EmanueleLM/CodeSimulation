@@ -1,0 +1,7 @@
+Datetime
+groq==0.5.0
+huggingface-hub==0.22.2
+numpy==1.26.4
+matplotlib
+openai==0.28.0
+pandas==2.2.2

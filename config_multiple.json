@@ -1,0 +1,49 @@
+{
+    "gpt35": {
+        "organization": "YOUR ORG",
+        "name":"gpt-3.5-turbo",
+        "key":"YOUT KEY"
+    },
+    "gpt4": {
+        "organization": "YOUR ORG",
+        "name":"gpt-4",
+        "key":"YOUT KEY"
+    },
+    "gpt4azure": {
+        "api_type": "azure",
+        "api_base": "https://gpt4-msoft-sponsorship.openai.azure.com/",
+        "api_version": "2023-07-01-preview",
+        "key": "YOUT KEY"
+    },
+    "gpt35azure": {
+        "api_type": "azure",
+        "api_base": "https://gpt4-msoft-sponsorship.openai.azure.com/",
+        "api_version": "2023-07-01-preview",
+        "key": "YOUT KEY"
+    },
+    "jurassic": {
+        "organization": "ai21",
+        "name":"jurassic",
+        "key":"YOUT KEY"
+    },
+    "llama": {
+        "organization": "meta-huggingface",
+        "name":"llama2",
+        "key":"YOUT KEY"
+    },
+    "llamacode": {
+        "organization": "meta-huggingface",
+        "name":"llamacode",
+        "key":"YOUT KEY"
+    },
+    "llamacodeinstruct": {
+        "organization": "meta-huggingface",
+        "name":"llamacodeinstruct",
+        "key":"YOUT KEY"
+    },
+    "llama3": {
+        "organization": "groq",
+        "name":"llama3-70b-8192",
+        "key":"YOUT KEY"
+    }
+}

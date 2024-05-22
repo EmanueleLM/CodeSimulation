@@ -1,0 +1,45 @@
+<cot>Simulate this Python code.
+@code@
+
+Think step by step and then reply with the output of the function for the following input: @input@. Report the result between <result></result> tags, so for example <result>1</result>.
+</cot>
+
+<code>I give you this Python code.
+@code@
+
+Do the following:
+# 1. Simulate the program instruction by instruction.
+# 2. Report the trace of the program at the end of each instruction.
+# 3. Think step by step and then reply with the output of the function for the following input: @input@. Report the result between <result></result> tags, so for example <result>1</result>.
+</code>
+
+<cot-llama>Given this Python code.
+@code@
+
+The output of the function for the following input: @input@ is
+</cot-llama>
+
+<self-consistency>I give you this Python code.
+@code@
+
+Think step by step and then reply with the output of the function for the following input: @input@. Report the result between <result></result> tags, so for example <result>1</result>.
+</self-consistency>
+
+<code-self-consistency>I give you this Python code.
+@code@
+
+Do the following:
+# 1. Simulate the program instruction by instruction.
+# 2. Report the trace of the program at the end of each instruction.
+# 3. Think step by step and then reply with the output of the function for the following input: @input@. Report the result between <result></result> tags, so for example <result>1</result>.
+</code-self-consistency>
+
+
+<code-llama>Simulate this Python code.
+@code@
+
+In particular:
+# 1. Simulate the program instruction by instruction.
+# 2. Report the trace of the program at the end of each iteration.
+# 3. Think step by step and then reply with the output of the function for the following input: @input@. Report the result between <result></result> tags, so for example <result>1</result>.
+</code-llama>

@@ -1,0 +1,33 @@
+<cot>Simulate this Python code.
+@code@
+
+Think step by step and then reply with the output of the function for n=@input@. Report the result between <result></result> tags, so for example <result>1</result>.
+</cot>
+
+<kshot-cot>@illustration@
+
+Now, simulate this Python code.
+@code@
+
+Think step by step and then reply with the output of the function for n=@input@. Report the result between <result></result> tags, so for example <result>1</result>.
+</kshot-cot>
+
+<code>Simulate this Python function.
+@code@
+
+In particular:
+# 1. Simulate the program instruction by instruction.
+# 2. Report the trace of the program at the end of each iteration.
+# 3. Think step by step and then reply with the output of the function for n=@input@. Report the result between <result></result> tags, so for example <result>1</result>.
+</code>
+
+<kshot-code>@illustration@
+
+Now, simulate this Python code.
+@code@
+
+In particular:
+# 1. Simulate the program instruction by instruction.
+# 2. Report the trace of the program at the end of each iteration.
+# 3. Think step by step and then reply with the output of the function for n=@input@. Report the result between <result></result> tags, so for example <result>1</result>.
+</kshot-code>

@@ -1,0 +1,22 @@
+<illustration>
+Consider a Python program that can contain sums, assignments and logical operations.
+A sum has the form a += b, which means that a becomes equal to its value plus that of b. A subtraction, in the form a -= b, works with the same rationale.
+An assignment has the form a = b, which means that a becomes equal to b.
+A logical and has the form a &= b, which means that a becomes equal to the logical and of a and b. A logical or, in the form a |= b, works with the same rationale.
+
+Here's an example of a program that consists of a 5 instructions.
+a0=5; a1=3; a2=8
+a0 -= a1
+a0 = a1
+a4 += a1
+a0 -= a2
+
+The computation carried on is the following:
+1. a0=5; a1=3; a2=8; a3=0; a4=4
+2. a0 -= a1 -> a0 = 5 - 3 = 2
+3. a0 = a1 -> a0 = 3
+4. a4 += a1 -> a4 = 4 + 3 = 7
+5. a0 -= a2 -> a0 = 3 - 8 = -5
+
+So, for example, the value of a4 at the end of the iterations is 7.
+</illustration>

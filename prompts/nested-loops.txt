@@ -1,0 +1,53 @@
+<cot>Simulate this Python function.
+@code@
+
+Think step by step and then reply with the output of the function for n=@input@. Report the result between <result></result> tags, so for example <result>1</result>.
+</cot>
+
+<kshot-cot>@illustration@
+
+Now, simulate this Python function.
+@code@
+
+Think step by step and then reply with the output of the function for n=@input@. Report the result between <result></result> tags, so for example <result>1</result>.
+</kshot-cot>
+
+<code>Simulate this Python function.
+@code@
+
+In particular:
+# 1. Simulate the program instruction by instruction.
+# 2. Report the trace of the program at the end of each iteration.
+# 3. Think step by step and then reply with the output of the function for n=@input@. Report the result between <result></result> tags, so for example <result>1</result>.
+</code>
+
+<kshot-code>@illustration@
+
+Now, simulate this Python function.
+@code@
+
+In particular:
+# 1. Simulate the program instruction by instruction.
+# 2. Report the trace of the program at the end of each iteration.
+# 3. Think step by step and then reply with the output of the function for n=@input@. Report the result between <result></result> tags, so for example <result>1</result>.
+</kshot-code>
+
+<self-consistency>I give you this Python code.
+@code@
+
+After that, reply with the output of the function for n=@input@. Think step by step and report the result between <result></result> tags, so for example <result>1</result>.
+</self-consistency>
+
+<code-self-consistency>I give you this Python code.
+@code@
+
+Think step by step and then reply with the output of the function for n=@input@ at the end of the computation. In particular:
+# 1. Simulate the program instruction by instruction.
+# 2. Report the trace of the program at the end of each instruction.
+# 3. Think step by step and reply with the output of the function for n=@input@ at the end of the computation. Report the result between <result></result> tags, so for example <result>[2, -3]</result>.
+</code-self-consistency>
+
+<cot-llama>Given this Python function.
+@code@
+The output of the function for n=@input@ is
+</cot-llama>

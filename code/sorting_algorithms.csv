@@ -1,0 +1,516 @@
+Algorithm,Iterative Code,Recursive Code,Worst Time Complexity,Average Time Complexity,Best Time Complexity,Space Complexity,Difficulty
+Insertion Sort,"
+
+def main(arr, size):
+    for j, val in enumerate(arr[1:]):
+        i = j
+        while j >= 0 and val < arr[j]:
+            arr[j + 1] = arr[j]
+            j -= 1
+        if j != i:
+            arr[j + 1] = val
+    return arr
+
+		","
+
+def main(arr, n):
+    if n <= 1:
+        return arr
+    main(arr, n - 1)
+    last = arr[n - 1]
+    j = n - 2
+    while j >= 0 and arr[j] > last:
+        arr[j + 1] = arr[j]
+        j -= 1
+    arr[j + 1] = last
+    return arr
+
+",O(n^2),Θ(n^2),Ω(n),It: O(1)   Rec: O(n),Easy
+Selection Sort,"
+
+def main(array, size):
+    n = len(array)
+    for i in range(n - 1):
+        min_index = i  
+        for j in range(i + 1, n):
+            if array[j] < array[min_index]:
+                min_index = j 
+        array[i], array[min_index] = array[min_index], array[i]
+    return array
+
+","
+
+def main(array, size, start=0):
+    if start >= len(array) - 1:
+        return array
+    min_index = start
+    for j in range(start + 1, len(array)):
+        if array[j] < array[min_index]:
+            min_index = j
+    array[start], array[min_index] = array[min_index], array[start]
+    return main(array, size, start + 1)
+
+",O(n^2),Θ(n^2),Ω(n^2),It: O(1)   Rec: O(n),Very easy
+Bubblesort,"
+
+def main(collection, size=0):
+    length = len(collection)
+    for i in reversed(range(length)):
+        for j in range(i):
+            if collection[j] > collection[j + 1]:
+                collection[j], collection[j + 1] = collection[j + 1], collection[j]
+    return collection
+
+","
+
+def main(list_data, length) :
+    for i in range(length - 1):
+        if list_data[i] > list_data[i + 1]:
+            list_data[i], list_data[i + 1] = list_data[i + 1], list_data[i]
+    return list_data if length<2 else main(list_data, length - 1)
+
+",O(n^2),Θ(n^2),Ω(n^2),It: O(1)   Rec: O(n),Easy
+Adaptive Bubblesort,"
+
+def main(collection, size=0):
+    length = len(collection)
+    for i in reversed(range(length)):
+        swapped = False
+        for j in range(i):
+            if collection[j] > collection[j + 1]:
+                swapped = True
+                collection[j], collection[j + 1] = collection[j + 1], collection[j]
+        if not swapped:
+            break
+    return collection
+
+","
+
+def main(list_data, length) :
+    swapped = False
+    for i in range(length - 1):
+        if list_data[i] > list_data[i + 1]:
+            list_data[i], list_data[i + 1] = list_data[i + 1], list_data[i]
+            swapped = True
+    return list_data if not swapped else main(list_data, length - 1)
+
+",O(n^2),Θ(n^2),Ω(n),It: O(1)   Rec: O(n),Easy
+Quicksort,"
+
+def main(arr, h, l=0):
+    if h==len(arr):
+        h=h-1
+    size = h - l + 1
+    stack = [0] * (size)
+    top = -1
+    top = top + 1
+    stack[top] = l
+    top = top + 1
+    stack[top] = h
+    while top >= 0:
+        h = stack[top]
+        top = top - 1
+        l = stack[top]
+        top = top - 1
+        p = f1( arr, l, h )
+        if p-1 > l:
+            top = top + 1
+            stack[top] = l
+            top = top + 1
+            stack[top] = p - 1
+        if p + 1 < h:
+            top = top + 1
+            stack[top] = p + 1
+            top = top + 1
+            stack[top] = h
+    return arr
+
+def f1(arr, l, h):
+    i = ( l - 1 )
+    x = arr[h]
+    for j in range(l, h):
+        if   arr[j] <= x:
+            i = i + 1
+            arr[i], arr[j] = arr[j], arr[i]
+    arr[i + 1], arr[h] = arr[h], arr[i + 1]
+    return (i + 1)
+
+","
+
+def main(array, high, low=0):
+    if high==len(array):
+        high=high-1
+    if low < high:
+        pi = f1(array, low, high)
+        main(array,  pi - 1, low)
+        main(array, high, pi + 1)
+    return array
+ 
+def f1(array, low, high):
+    pivot = array[high]
+    i = low - 1
+    for j in range(low, high):
+        if array[j] <= pivot:
+            i = i + 1
+            (array[i], array[j]) = (array[j], array[i])
+    (array[i + 1], array[high]) = (array[high], array[i + 1])
+    return i + 1
+
+",O(n^2),Θ(n log(n)),Ω(n log(n)),It: O(n)   Rec: O(n),Medium
+Mergesort,"
+
+def main(a, size):
+    width = 1   
+    n = len(a)                                         
+    while (width < n):
+        l=0;
+        while (l < n):
+            r = min(l+(width*2-1), n-1)        
+            m = min(l+width-1,n-1)           
+            f1(a, l, m, r)
+            l += width*2
+        width *= 2
+    return a
+
+def f1(a, l, m, r):
+    n1 = m - l + 1
+    n2 = r - m
+    L = [0] * n1
+    R = [0] * n2
+    for i in range(0, n1):
+        L[i] = a[l + i]
+    for i in range(0, n2):
+        R[i] = a[m + i + 1]
+    i, j, k = 0, 0, l
+    while i < n1 and j < n2:
+        if L[i] <= R[j]:
+            a[k] = L[i]
+            i += 1
+        else:
+            a[k] = R[j]
+            j += 1
+        k += 1
+    while i < n1:
+        a[k] = L[i]
+        i += 1
+        k += 1
+    while j < n2:
+        a[k] = R[j]
+        j += 1
+        k += 1
+
+","
+
+def main(arr, r, l=0):
+    if r==len(arr):
+        r=r-1
+    if l < r:
+        m = l+(r-l)//2
+        main(arr, m, l)
+        main(arr, r, m+1)
+        f1(arr, l, m, r)
+    return arr
+
+def f1(arr, l, m, r):
+    n1 = m - l + 1
+    n2 = r - m
+    L = [0] * (n1)
+    R = [0] * (n2)
+    for i in range(0, n1):
+        L[i] = arr[l + i]
+    for j in range(0, n2):
+        R[j] = arr[m + 1 + j]
+    i = 0
+    j = 0
+    k = l
+    while i < n1 and j < n2:
+        if L[i] <= R[j]:
+            arr[k] = L[i]
+            i += 1
+        else:
+            arr[k] = R[j]
+            j += 1
+        k += 1
+    while i < n1:
+        arr[k] = L[i]
+        i += 1
+        k += 1
+    while j < n2:
+        arr[k] = R[j]
+        j += 1
+        k += 1
+
+",O(n log(n)),Θ(n log(n)),Ω(n log(n)),It: O(n)   Rec: O(n),Medium
+Timsort,"
+
+def f2(arr, left=0, right=None):
+    if right is None:
+        right = len(arr) - 1
+
+    for i in range(left + 1, right + 1):
+        key_item = arr[i]
+        j = i - 1
+        while j >= left and arr[j] > key_item:
+            arr[j + 1] = arr[j]
+            j -= 1
+        arr[j + 1] = key_item
+
+def f1(arr, left, middle, right):
+    if arr[middle] <= arr[middle + 1]:
+        return
+
+    left_copy = arr[left:middle + 1]
+    right_copy = arr[middle + 1:right + 1]
+
+    left_copy_index = 0
+    right_copy_index = 0
+    s_index = left
+
+    while left_copy_index < len(left_copy) and right_copy_index < len(right_copy):
+        if left_copy[left_copy_index] <= right_copy[right_copy_index]:
+            arr[s_index] = left_copy[left_copy_index]
+            left_copy_index += 1
+        else:
+            arr[s_index] = right_copy[right_copy_index]
+            right_copy_index += 1
+        s_index += 1
+
+    while left_copy_index < len(left_copy):
+        arr[s_index] = left_copy[left_copy_index]
+        left_copy_index += 1
+        s_index += 1
+
+    while right_copy_index < len(right_copy):
+        arr[s_index] = right_copy[right_copy_index]
+        right_copy_index += 1
+        s_index += 1
+
+def main(arr,n):
+    min_run = 32
+    n = len(arr)
+
+    for i in range(0, n, min_run):
+        f2(arr, i, min((i + min_run - 1), n - 1))
+
+    size = min_run
+    while size < n:
+        for start in range(0, n, size * 2):
+            middle = min((start + size - 1), (n - 1))
+            end = min((start + size * 2 - 1), (n - 1))
+
+            if middle < end:
+                f1(arr, start, middle, end)
+
+        size *= 2
+
+    return arr
+
+","
+
+def main(lst, size):
+    length = len(lst)
+    runs, s_runs = [], []
+    new_run = [lst[0]]
+    s_array = []
+    i = 1
+    while i < length:
+        if lst[i] < lst[i - 1]:
+            runs.append(new_run)
+            new_run = [lst[i]]
+        else:
+            new_run.append(lst[i])
+        i += 1
+    runs.append(new_run)
+
+    for run in runs:
+        s_runs.append(f2(run))
+    for run in s_runs:
+        s_array = f1(s_array, run)
+
+    return s_array
+
+def f1(left, right):
+    if not left:
+        return right
+
+    if not right:
+        return left
+
+    if left[0] < right[0]:
+        return [left[0], *f1(left[1:], right)]
+
+    return [right[0], *f1(left, right[1:])]
+
+def f2(lst):
+    length = len(lst)
+
+    for index in range(1, length):
+        value = lst[index]
+        pos = f3(lst, value, 0, index - 1)
+        lst = lst[:pos] + [value] + lst[pos:index] + lst[index + 1 :]
+
+    return lst
+
+def f3(lst, item, start, end):
+    if start == end:
+        return start if lst[start] > item else start + 1
+    if start > end:
+        return start
+
+    mid = (start + end) // 2
+    if lst[mid] < item:
+        return f3(lst, item, mid + 1, end)
+    elif lst[mid] > item:
+        return f3(lst, item, start, mid - 1)
+    else:
+        return mid
+
+",O(n log(n)),Θ(n log(n)),Ω(n),It: /  Rec: O(n),Medium-Hard
+Heapsort,"
+
+def main(arr, n):
+    f1(arr, n)
+    for i in range(n - 1, 0, -1):
+        arr[0], arr[i] = arr[i], arr[0]
+        j, index = 0, 0
+        while True:
+            index = 2 * j + 1
+            if (index < (i - 1) and
+                arr[index] < arr[index + 1]):
+                index += 1
+            if index < i and arr[j] < arr[index]:
+                arr[j], arr[index] = arr[index], arr[j]
+            j = index
+            if index >= i:
+                break
+    return arr
+
+def f1(arr, n):
+    for i in range(n):
+        if arr[i] > arr[int((i - 1) / 2)]:
+            j = i
+            while arr[j] > arr[int((j - 1) / 2)]:
+                (arr[j],
+                 arr[int((j - 1) / 2)]) = (arr[int((j - 1) / 2)],arr[j])
+                j = int((j - 1) / 2)
+ 
+","
+
+def main(u_arr,size):
+    n = len(u_arr)
+    for i in range(n // 2 - 1, -1, -1):
+        f1(u_arr, i, n)
+    for i in range(n - 1, 0, -1):
+        u_arr[0], u_arr[i] = u_arr[i], u_arr[0]
+        f1(u_arr, 0, i)
+    return u_arr
+
+def f1(u_arr, index, heap_size):
+    largest = index
+    left_index = 2 * index + 1
+    right_index = 2 * index + 2
+    if left_index < heap_size and u_arr[left_index] > u_arr[largest]:
+        largest = left_index
+
+    if right_index < heap_size and u_arr[right_index] > u_arr[largest]:
+        largest = right_index
+
+    if largest != index:
+        u_arr[largest], u_arr[index] = u_arr[index], u_arr[largest]
+        f1(u_arr, largest, heap_size)
+
+
+",O(n log(n)),Θ(n log(n)),Ω(n log(n)),It: O(1)   Rec: O(log n),Medium
+Shell Sort,"
+
+def main(arr, n):
+    gap=n//2        
+    while gap>0:
+        j=gap
+        while j<n:
+            i=j-gap
+            while i>=0:
+                if arr[i+gap]>arr[i]:
+                    break
+                else:
+                    arr[i+gap],arr[i]=arr[i],arr[i+gap]
+                i=i-gap 
+            j+=1
+        gap=gap//2
+    return arr
+
+","
+
+def main(arr, n, gap=None):
+    if gap is None:
+        gap = len(arr) // 2
+
+    if gap <= 0:
+        return arr
+
+    for i in range(gap, len(arr)):
+        j = i
+        while j >= gap and arr[j - gap] > arr[j]:
+            arr[j], arr[j - gap] = arr[j - gap], arr[j]
+            j -= gap
+
+    main(arr, n, gap // 2)
+    return arr
+
+",O(n (log(n))^2),Θ(n (log(n))^2),Ω(n log(n)),"It: O(1)   Rec:O(log n) ",Easy-Medium
+Counting Sort,"
+
+def main(collection,size):
+    if collection == []:
+        return []
+    coll_len = len(collection)
+    coll_max = max(collection)
+    coll_min = min(collection)
+    counting_arr_length = coll_max + 1 - coll_min
+    counting_arr = [0] * counting_arr_length
+    for number in collection:
+        counting_arr[number - coll_min] += 1
+    for i in range(1, counting_arr_length):
+        counting_arr[i] = counting_arr[i] + counting_arr[i - 1]
+    arr = [0] * coll_len
+    for i in reversed(range(coll_len)):
+        arr[counting_arr[collection[i] - coll_min] - 1] = collection[i]
+        counting_arr[collection[i] - coll_min] -= 1
+    return arr
+
+","
+
+def main(arr, size):
+    if not arr:
+        return arr
+    min_val = min(arr)
+    count = arr.count(min_val)
+    s_beginning = [min_val] * count
+    s_rest = main([x for x in arr if x != min_val], None)
+    return s_beginning + s_rest
+
+",O(n+k),Θ(n+k),Ω(n+k),It: O(n+k)   Rec: /,Medium
+Bead Sort,"
+
+def main(sequence,size):
+    for _ in range(len(sequence)):
+        for i, (rod_upper, rod_lower) in enumerate(zip(sequence, sequence[1:])):
+            if rod_upper > rod_lower:
+                sequence[i] -= rod_upper - rod_lower
+                sequence[i + 1] += rod_upper - rod_lower
+    return sequence
+
+","
+
+def main(sequence, size):
+    if size == 0:
+        return sequence
+    else:
+        for i in range(len(sequence) - 1):
+            rod_upper, rod_lower = sequence[i], sequence[i + 1]
+            if rod_upper > rod_lower:
+                sequence[i] = rod_lower
+                sequence[i + 1] = rod_upper
+        return main(sequence, size - 1)
+
+",O(n log(n)),\,\,"It: O(n^2)   Rec: O(n^2) ",Hard

@@ -1,0 +1,1155 @@
+##############################
+2024-05-08 07:46:37.564036
+algo_type: iterative, n_samples: 30, v_length: 10
+algorithm: Heapsort
+
+<prompt>
+I give you this Python code.
+
+
+def main(arr, n):
+    f1(arr, n)
+    for i in range(n - 1, 0, -1):
+        arr[0], arr[i] = arr[i], arr[0]
+        j, index = 0, 0
+        while True:
+            index = 2 * j + 1
+            if (index < (i - 1) and
+                arr[index] < arr[index + 1]):
+                index += 1
+            if index < i and arr[j] < arr[index]:
+                arr[j], arr[index] = arr[index], arr[j]
+            j = index
+            if index >= i:
+                break
+    return arr
+
+def f1(arr, n):
+    for i in range(n):
+        if arr[i] > arr[int((i - 1) / 2)]:
+            j = i
+            while arr[j] > arr[int((j - 1) / 2)]:
+                (arr[j],
+                 arr[int((j - 1) / 2)]) = (arr[int((j - 1) / 2)],arr[j])
+                j = int((j - 1) / 2)
+ 
+
+
+Think step by step and then reply with the correct result for input the input value [37, 39, 34, 77, 66, 38, 36, 87, 23, 91]. In particular:
+# 1. Simulate the program instruction by instruction.
+# 2. Report the trace of the program at the end of each instruction.
+# 3. Think step by step and reply with the correct result for input the input value [37, 39, 34, 77, 66, 38, 36, 87, 23, 91] at the end of the computation. Report the result between <result></result> tags, so for example <result>[5, 7, 9]</result>.
+
+</prompt>
+<response>
+Let's go through the code step by step.
+
+**Initial state**
+`arr = [37, 39, 34, 77, 66, 38, 36, 87, 23, 91]`
+`n = 10`
+
+**f1(arr, n)**
+This function is called first. It iterates over the array and checks if each element is greater than its parent node in the heap. If so, it swaps them.
+
+**Iteration 1**
+`i = 0`
+`arr[0] = 37`
+`arr[int((0 - 1) / 2)] = undefined` (since `i - 1` is `-1`, which is out of bounds)
+No swap occurs.
+
+**Iteration 2**
+`i = 1`
+`arr[1] = 39`
+`arr[int((1 - 1) / 2)] = 37`
+No swap occurs.
+
+**Iteration 3**
+`i = 2`
+`arr[2] = 34`
+`arr[int((2 - 1) / 2)] = 39`
+No swap occurs.
+
+**Iteration 4**
+`i = 3`
+`arr[3] = 77`
+`arr[int((3 - 1) / 2)] = 39`
+Swap occurs: `arr[3] = 77`, `arr[1] = 39`
+`arr = [37, 77, 34, 39, 66, 38, 36, 87, 23, 91]`
+
+**Iteration 5**
+`i = 4`
+`arr[4] = 66`
+`arr[int((4 - 1) / 2)] = 77`
+No swap occurs.
+
+**Iteration 6**
+`i = 5`
+`arr[5] = 38`
+`arr[int((5 - 1) / 2)] = 66`
+No swap occurs.
+
+**Iteration 7**
+`i = 6`
+`arr[6] = 36`
+`arr[int((6 - 1) / 2)] = 66`
+No swap occurs.
+
+**Iteration 8**
+`i = 7`
+`arr[7] = 87`
+`arr[int((7 - 1) / 2)] = 77`
+Swap occurs: `arr[7] = 87`, `arr[3] = 77`
+`arr = [37, 87, 34, 77, 66, 38, 36, 39, 23, 91]`
+
+**Iteration 9**
+`i = 8`
+`arr[8] = 23`
+`arr[int((8 - 1) / 2)] = 87`
+No swap occurs.
+
+**Iteration 10**
+`i = 9`
+`arr[9] = 91`
+`arr[int((9 - 1) / 2)] = 87`
+Swap occurs: `arr[9] = 91`, `arr[4] = 87`
+`arr = [37, 91, 34, 77, 87, 38, 36, 39, 23, 66]`
+
+Now, `f1(arr, n)` has finished executing.
+
+**main(arr, n)**
+The main function calls `f1(arr, n)` and then enters a loop.
+
+**Loop iteration 1**
+`i = 9`
+`arr[0], arr[9] = arr[9], arr[0]`
+`arr = [91, 91, 34, 77, 87, 38, 36, 39, 23, 37]`
+
+**Heapify**
+`j = 0`, `index = 2 * 0 + 1 = 1`
+`arr[0] = 91`, `arr[1] = 91`
+No swap occurs.
+
+**Loop iteration 2**
+`i = 8`
+`arr[0], arr[8] = arr[8], arr[0]`
+`arr = [23, 91, 34, 77, 87, 38, 36, 39, 91, 37]`
+
+**Heapify**
+`j = 0`, `index = 2 * 0 + 1 = 1`
+`arr[0] = 23`, `arr[1] = 91`
+Swap occurs: `arr[0] = 91`, `arr[1] = 23`
+`arr = [91, 23, 34, 77, 87, 38, 36, 39, 91, 37]`
+
+**Loop iteration 3**
+`i = 7`
+`arr[0], arr[7] = arr[7], arr[0]`
+`arr = [39, 23, 34, 77, 87, 38, 36, 91, 91, 37]`
+
+**Heapify**
+`j = 0`, `index = 2 * 0 + 1 = 1`
+`arr[0] = 39`, `arr[1] = 23`
+Swap occurs: `arr[0] = 23`, `arr[1] = 39`
+`arr = [23, 39, 34, 77, 87, 38, 36, 91, 91, 37]`
+
+**Loop iteration 4**
+`i = 6`
+`arr[0], arr[6] = arr[6], arr[0]`
+`arr = [36, 39, 34, 77, 87, 38, 36, 91, 91, 37]`
+
+**Heapify**
+`j = 0`, `index = 2 * 0 + 1 = 1`
+`arr[0] = 36`, `arr[1] = 39`
+Swap occurs: `arr[0] = 39`, `arr[1] = 36`
+`arr = [39, 36, 34, 77, 87, 38, 36, 91, 91, 37]`
+
+**Loop iteration 5**
+`i = 5`
+`arr[0], arr[5] = arr[5], arr[0]`
+`arr = [38, 36, 34, 77, 87, 39, 36, 91, 91, 37]`
+
+**Heapify**
+`j = 0`, `index = 2 * 0 + 1 = 1`
+`arr[0] = 38`, `arr[1] = 36`
+Swap occurs: `arr[0] = 36`, `arr[1] = 38`
+`arr = [36, 38, 34, 77, 87, 39, 36, 91, 91, 37]`
+
+**Loop iteration 6**
+`i = 4`
+`arr[0], arr[4] = arr[4], arr[0]`
+`arr = [87, 38, 34, 77, 36, 39, 36, 91, 91, 37]`
+
+**Heapify**
+`j = 0`, `index = 2 * 0 + 1 = 1`
+`arr[0] = 87`, `arr[1] = 38`
+Swap occurs: `arr[0] = 38`, `arr[1] = 87`
+`arr = [38, 87, 34, 77, 36, 39, 36, 91, 91, 37]`
+
+**Loop iteration 7**
+`i = 3`
+`arr[0], arr[3] = arr[3], arr[0]`
+`arr = [77, 87, 34, 38, 36, 39, 36, 91, 91, 37]`
+
+**Heapify**
+`j = 0`, `index = 2 * 0 + 1 = 1`
+`arr[0] = 77`, `arr[1] = 87`
+Swap occurs: `arr[0] = 87`, `arr[1] = 77`
+`arr = [87, 77, 34, 38, 36, 39, 36, 91, 91, 37]`
+
+**Loop iteration 8**
+`i = 2`
+`arr[0], arr[2] = arr[2], arr[0]`
+`arr = [34, 77, 87, 38, 36, 39, 36, 91, 91, 37]`
+
+**Heapify**
+`j = 0`, `index = 2 * 0 + 1 = 1`
+`arr[0] = 34`, `arr[1] = 77`
+Swap occurs: `arr[0] = 77`, `arr[1] = 34`
+`arr = [77, 34, 87, 38, 36, 39, 36, 91, 91, 37]`
+
+**Loop iteration 9**
+`i = 1`
+`arr[0], arr[1] = arr[1], arr[0]`
+`arr = [34, 77, 87, 38, 36, 39, 36, 91, 91, 37]`
+
+**Heapify**
+`j = 0`, `index = 2 * 0 + 1 = 1`
+`arr[0] = 34`, `arr[1] = 77`
+Swap occurs: `arr[0] = 77`, `arr[1] = 34`
+`arr = [77, 34, 87, 38, 36, 39, 36, 91, 91, 37]`
+
+The loop has finished executing.
+
+The final result is:
+<result>[23, 36, 36, 37, 38, 39, 34, 77, 87, 91]</result>
+</response>
+<ground-truth>
+[23, 34, 36, 37, 38, 39, 66, 77, 87, 91]
+</ground-truth>
+
+<Accuracy> Alg Heapsort-iterative (1 samples): 0.0</accuracy>
+
+##############################
+2024-05-08 07:47:18.001630
+algo_type: recursive, n_samples: 30, v_length: 10
+algorithm: Heapsort
+
+<prompt>
+I give you this Python code.
+
+
+def main(u_arr,size):
+    n = len(u_arr)
+    for i in range(n // 2 - 1, -1, -1):
+        f1(u_arr, i, n)
+    for i in range(n - 1, 0, -1):
+        u_arr[0], u_arr[i] = u_arr[i], u_arr[0]
+        f1(u_arr, 0, i)
+    return u_arr
+
+def f1(u_arr, index, heap_size):
+    largest = index
+    left_index = 2 * index + 1
+    right_index = 2 * index + 2
+    if left_index < heap_size and u_arr[left_index] > u_arr[largest]:
+        largest = left_index
+
+    if right_index < heap_size and u_arr[right_index] > u_arr[largest]:
+        largest = right_index
+
+    if largest != index:
+        u_arr[largest], u_arr[index] = u_arr[index], u_arr[largest]
+        f1(u_arr, largest, heap_size)
+
+
+
+
+Think step by step and then reply with the correct result for input the input value [84, 81, 25, 79, 43, 19, 67, 36, 62, 17]. In particular:
+# 1. Simulate the program instruction by instruction.
+# 2. Report the trace of the program at the end of each instruction.
+# 3. Think step by step and reply with the correct result for input the input value [84, 81, 25, 79, 43, 19, 67, 36, 62, 17] at the end of the computation. Report the result between <result></result> tags, so for example <result>[5, 7, 9]</result>.
+
+</prompt>
+<response>
+Let's go through the program step by step.
+
+**Initial State**
+`u_arr = [84, 81, 25, 79, 43, 19, 67, 36, 62, 17]`
+`size = len(u_arr) = 10`
+
+**First Loop**
+`for i in range(n // 2 - 1, -1, -1):`
+`i = 4`
+`f1(u_arr, 4, 10)`
+`u_arr = [84, 81, 25, 79, 43, 19, 67, 36, 62, 17]`
+
+**f1(u_arr, 4, 10)**
+`largest = 4`
+`left_index = 9`
+`right_index = 10`
+`largest = 4` (no change)
+`u_arr = [84, 81, 25, 79, 43, 19, 67, 36, 62, 17]`
+
+**Back to the loop**
+`i = 3`
+`f1(u_arr, 3, 10)`
+`u_arr = [84, 81, 25, 79, 43, 19, 67, 36, 62, 17]`
+
+**f1(u_arr, 3, 10)**
+`largest = 3`
+`left_index = 7`
+`right_index = 8`
+`largest = 7`
+`u_arr[3], u_arr[7] = u_arr[7], u_arr[3]`
+`u_arr = [84, 81, 67, 79, 43, 19, 67, 36, 62, 17]`
+`f1(u_arr, 7, 10)`
+`u_arr = [84, 81, 67, 79, 43, 19, 67, 36, 62, 17]`
+
+**f1(u_arr, 7, 10)**
+`largest = 7`
+`left_index = 15` (out of bounds)
+`right_index = 16` (out of bounds)
+`largest = 7` (no change)
+`u_arr = [84, 81, 67, 79, 43, 19, 67, 36, 62, 17]`
+
+**Back to the loop**
+`i = 2`
+`f1(u_arr, 2, 10)`
+`u_arr = [84, 81, 67, 79, 43, 19, 67, 36, 62, 17]`
+
+**f1(u_arr, 2, 10)**
+`largest = 2`
+`left_index = 5`
+`right_index = 6`
+`largest = 5`
+`u_arr[2], u_arr[5] = u_arr[5], u_arr[2]`
+`u_arr = [84, 81, 19, 79, 43, 19, 67, 36, 62, 17]`
+`f1(u_arr, 5, 10)`
+`u_arr = [84, 81, 19, 79, 43, 19, 67, 36, 62, 17]`
+
+**f1(u_arr, 5, 10)**
+`largest = 5`
+`left_index = 11` (out of bounds)
+`right_index = 12` (out of bounds)
+`largest = 5` (no change)
+`u_arr = [84, 81, 19, 79, 43, 19, 67, 36, 62, 17]`
+
+**Back to the loop**
+`i = 1`
+`f1(u_arr, 1, 10)`
+`u_arr = [84, 81, 19, 79, 43, 19, 67, 36, 62, 17]`
+
+**f1(u_arr, 1, 10)**
+`largest = 1`
+`left_index = 3`
+`right_index = 4`
+`largest = 1` (no change)
+`u_arr = [84, 81, 19, 79, 43, 19, 67, 36, 62, 17]`
+
+**Back to the loop**
+`i = 0`
+`f1(u_arr, 0, 10)`
+`u_arr = [84, 81, 19, 79, 43, 19, 67, 36, 62, 17]`
+
+**f1(u_arr, 0, 10)**
+`largest = 0`
+`left_index = 1`
+`right_index = 2`
+`largest = 0` (no change)
+`u_arr = [84, 81, 19, 79, 43, 19, 67, 36, 62, 17]`
+
+**End of the first loop**
+
+**Second Loop**
+`for i in range(n - 1, 0, -1):`
+`i = 9`
+`u_arr[0], u_arr[9] = u_arr[9], u_arr[0]`
+`u_arr = [17, 81, 19, 79, 43, 19, 67, 36, 62, 84]`
+`f1(u_arr, 0, 9)`
+`u_arr = [17, 81, 19, 79, 43, 19, 67, 36, 62, 84]`
+
+**f1(u_arr, 0, 9)**
+`largest = 0`
+`left_index = 1`
+`right_index = 2`
+`largest = 0` (no change)
+`u_arr = [17, 81, 19, 79, 43, 19, 67, 36, 62, 84]`
+
+**Back to the loop**
+`i = 8`
+`u_arr[0], u_arr[8] = u_arr[8], u_arr[0]`
+`u_arr = [62, 81, 19, 79, 43, 19, 67, 36, 62, 84]`
+`f1(u_arr, 0, 8)`
+`u_arr = [62, 81, 19, 79, 43, 19, 67, 36, 62, 84]`
+
+**f1(u_arr, 0, 8)**
+`largest = 0`
+`left_index = 1`
+`right_index = 2`
+`largest = 0` (no change)
+`u_arr = [62, 81, 19, 79, 43, 19, 67, 36, 62, 84]`
+
+**Back to the loop**
+`i = 7`
+`u_arr[0], u_arr[7] = u_arr[7], u_arr[0]`
+`u_arr = [67, 81, 19, 79, 43, 19, 67, 36, 62, 84]`
+`f1(u_arr, 0, 7)`
+`u_arr = [67, 81, 19, 79, 43, 19, 67, 36, 62, 84]`
+
+**f1(u_arr, 0, 7)**
+`largest = 0`
+`left_index = 1`
+`right_index = 2`
+`largest = 0` (no change)
+`u_arr = [67, 81, 19, 79, 43, 19, 67, 36, 62, 84]`
+
+**Back to the loop**
+`i = 6`
+`u_arr[0], u_arr[6] = u_arr[6], u_arr[0]`
+`u_arr = [36, 81, 19, 79, 43, 19, 67, 36, 62, 84]`
+`f1(u_arr, 0, 6)`
+`u_arr = [36, 81, 19, 79, 43, 19, 67, 36, 62, 84]`
+
+**f1(u_arr, 0, 6)**
+`largest = 0`
+`left_index = 1`
+`right_index = 2`
+`largest = 0` (no change)
+`u_arr = [36, 81, 19, 79, 43, 19, 67, 36, 62, 84]`
+
+**Back to the loop**
+`i = 5`
+`u_arr[0], u_arr[5] = u_arr[5], u_arr[0]`
+`u_arr = [19, 81, 19, 79, 43, 19, 67, 36, 62, 84]`
+`f1(u_arr, 0, 5)`
+`u_arr = [19, 81, 19, 79, 43, 19, 67, 36, 62, 84]`
+
+**f1(u_arr, 0, 5)**
+`largest = 0`
+`left_index = 1`
+`right_index = 2`
+`largest = 0` (no change)
+`u_arr = [19, 81, 19, 79, 43, 19, 67, 36, 62, 84]`
+
+**Back to the loop**
+`i = 4`
+`u_arr[0], u_arr[4] = u_arr[4], u_arr[0]`
+`u_arr = [43, 81, 19, 79, 43, 19, 67, 36, 62, 84]`
+`f1(u_arr, 0, 4)`
+`u_arr = [43, 81, 19, 79, 43, 19, 67, 36, 62, 84]`
+
+**f1(u_arr, 0, 4)**
+`largest = 0`
+`left_index = 1`
+`right_index = 2`
+`largest = 0` (no change)
+`u_arr = [43, 81, 19, 79, 43, 19, 67, 36, 62, 84]`
+
+**Back to the loop**
+`i = 3`
+`u_arr[0], u_arr[3] = u_arr[3], u_arr[0]`
+`u_arr = [79, 81, 19, 79, 43, 19, 67, 36, 62, 84]`
+`f1(u_arr, 0, 3)`
+`u_arr = [79, 81, 19, 79, 43, 19, 67, 36, 62, 84]`
+
+**f1(u_arr, 0, 3)**
+`largest = 0`
+`left_index = 1`
+`right_index = 2`
+`largest = 0` (no change)
+`u_arr = [79, 81, 19, 79, 43, 19, 67, 36, 62, 84]`
+
+**Back to the loop**
+`i = 2`
+`u_arr[0], u_arr[2] = u_arr[2], u_arr[0]`
+`u_arr = [19, 81, 19, 79, 43, 19, 67, 36, 62, 84]`
+`f1(u_arr, 0, 2)`
+`u_arr = [19, 81, 19, 79, 43, 19, 67, 36, 62, 84]`
+
+**f1(u_arr, 0, 2)**
+`largest = 0`
+`left_index = 1`
+`right_index = 2`
+`largest = 0` (no change)
+`u_arr = [19, 81, 19, 79, 43, 19, 67, 36, 62, 84]`
+
+**Back to the loop**
+`i = 1`
+`u_arr[0], u_arr[1] = u_arr[1], u_arr[0]`
+`u_arr = [81, 19, 19, 79, 43, 19, 67, 36, 62, 84]`
+`f1(u_arr, 0, 1)`
+`u_arr = [81, 19, 19, 79, 43, 19, 67, 36, 62, 84]`
+
+**f1(u_arr, 0, 1)**
+`largest = 0`
+`left_index = 1`
+`right_index = 2`
+`largest = 0` (no change)
+`u_arr = [81, 19, 19, 79, 43, 19, 67, 36, 62, 84]`
+
+**End of the second loop**
+
+The final result is:
+<result>[17, 62, 67, 36, 19, 19, 43, 79, 81, 84]</result>
+</response>
+<ground-truth>
+[17, 19, 25, 36, 43, 62, 67, 79, 81, 84]
+</ground-truth>
+
+<Accuracy> Alg Heapsort-recursive (1 samples): 0.0</accuracy>
+
+##############################
+2024-05-08 07:48:00.360116
+algo_type: iterative, n_samples: 30, v_length: 20
+algorithm: Heapsort
+
+<prompt>
+I give you this Python code.
+
+
+def main(arr, n):
+    f1(arr, n)
+    for i in range(n - 1, 0, -1):
+        arr[0], arr[i] = arr[i], arr[0]
+        j, index = 0, 0
+        while True:
+            index = 2 * j + 1
+            if (index < (i - 1) and
+                arr[index] < arr[index + 1]):
+                index += 1
+            if index < i and arr[j] < arr[index]:
+                arr[j], arr[index] = arr[index], arr[j]
+            j = index
+            if index >= i:
+                break
+    return arr
+
+def f1(arr, n):
+    for i in range(n):
+        if arr[i] > arr[int((i - 1) / 2)]:
+            j = i
+            while arr[j] > arr[int((j - 1) / 2)]:
+                (arr[j],
+                 arr[int((j - 1) / 2)]) = (arr[int((j - 1) / 2)],arr[j])
+                j = int((j - 1) / 2)
+ 
+
+
+Think step by step and then reply with the correct result for input the input value [39, 18, 4, 57, 2, 38, 8, 80, 17, 32, 21, 4, 30, 75, 86, 63, 75, 48, 54, 13]. In particular:
+# 1. Simulate the program instruction by instruction.
+# 2. Report the trace of the program at the end of each instruction.
+# 3. Think step by step and reply with the correct result for input the input value [39, 18, 4, 57, 2, 38, 8, 80, 17, 32, 21, 4, 30, 75, 86, 63, 75, 48, 54, 13] at the end of the computation. Report the result between <result></result> tags, so for example <result>[5, 7, 9]</result>.
+
+</prompt>
+<response>
+Let's go through the program step by step.
+
+**Initial State**
+`arr = [39, 18, 4, 57, 2, 38, 8, 80, 17, 32, 21, 4, 30, 75, 86, 63, 75, 48, 54, 13]`
+`n = 20`
+
+**f1(arr, n)**
+This function is called first. It's a heapify function that builds a max heap.
+
+1. `i = 0`
+`arr[0] = 39`, `arr[0] > arr[18] = 13`, so swap them.
+`arr = [13, 18, 4, 57, 2, 38, 8, 80, 17, 32, 21, 4, 30, 75, 86, 63, 75, 48, 54, 39]`
+
+2. `i = 1`
+`arr[1] = 18`, `arr[1] > arr[19] = 54`, so swap them.
+`arr = [13, 54, 4, 57, 2, 38, 8, 80, 17, 32, 21, 4, 30, 75, 86, 63, 75, 48, 39, 18]`
+
+3. `i = 2`
+`arr[2] = 4`, `arr[2] < arr[5] = 38`, so no swap.
+
+...
+
+After the `f1(arr, n)` function, the array becomes:
+`arr = [86, 75, 75, 63, 57, 54, 48, 39, 38, 32, 30, 21, 18, 17, 13, 8, 4, 4, 2]`
+
+**main loop**
+Now, the main loop starts.
+
+1. `i = 19`
+`arr[0] = 86`, `arr[19] = 2`, swap them.
+`arr = [2, 75, 75, 63, 57, 54, 48, 39, 38, 32, 30, 21, 18, 17, 13, 8, 4, 4, 86]`
+
+`j = 0`, `index = 1`
+`arr[0] = 2`, `arr[1] = 75`, no swap.
+
+`j = 1`, `index = 3`
+`arr[1] = 75`, `arr[3] = 63`, no swap.
+
+...
+
+After the first iteration of the main loop, the array becomes:
+`arr = [2, 75, 75, 63, 57, 54, 48, 39, 38, 32, 30, 21, 18, 17, 13, 8, 4, 4, 86]`
+
+The loop continues until `i = 1`.
+
+**Final Result**
+After the entire computation, the array becomes:
+`arr = [2, 4, 4, 8, 13, 17, 18, 21, 30, 32, 38, 39, 48, 54, 57, 63, 75, 75, 86]`
+
+So, the final result is:
+<result>[2, 4, 4, 8, 13, 17, 18, 21, 30, 32, 38, 39, 48, 54, 57, 63, 75, 75, 86]</result>
+</response>
+<ground-truth>
+[2, 4, 4, 8, 13, 17, 18, 21, 30, 32, 38, 39, 48, 54, 57, 63, 75, 75, 80, 86]
+</ground-truth>
+
+<Accuracy> Alg Heapsort-iterative (1 samples): 0.0</accuracy>
+
+##############################
+2024-05-08 07:48:35.958142
+algo_type: recursive, n_samples: 30, v_length: 20
+algorithm: Heapsort
+
+<prompt>
+I give you this Python code.
+
+
+def main(u_arr,size):
+    n = len(u_arr)
+    for i in range(n // 2 - 1, -1, -1):
+        f1(u_arr, i, n)
+    for i in range(n - 1, 0, -1):
+        u_arr[0], u_arr[i] = u_arr[i], u_arr[0]
+        f1(u_arr, 0, i)
+    return u_arr
+
+def f1(u_arr, index, heap_size):
+    largest = index
+    left_index = 2 * index + 1
+    right_index = 2 * index + 2
+    if left_index < heap_size and u_arr[left_index] > u_arr[largest]:
+        largest = left_index
+
+    if right_index < heap_size and u_arr[right_index] > u_arr[largest]:
+        largest = right_index
+
+    if largest != index:
+        u_arr[largest], u_arr[index] = u_arr[index], u_arr[largest]
+        f1(u_arr, largest, heap_size)
+
+
+
+
+Think step by step and then reply with the correct result for input the input value [31, 94, 68, 87, 46, 73, 97, 14, 49, 7, 88, 34, 12, 63, 42, 20, 26, 87, 17, 49]. In particular:
+# 1. Simulate the program instruction by instruction.
+# 2. Report the trace of the program at the end of each instruction.
+# 3. Think step by step and reply with the correct result for input the input value [31, 94, 68, 87, 46, 73, 97, 14, 49, 7, 88, 34, 12, 63, 42, 20, 26, 87, 17, 49] at the end of the computation. Report the result between <result></result> tags, so for example <result>[5, 7, 9]</result>.
+
+</prompt>
+<response>
+Let's go through the program step by step.
+
+**Initial State**
+`u_arr = [31, 94, 68, 87, 46, 73, 97, 14, 49, 7, 88, 34, 12, 63, 42, 20, 26, 87, 17, 49]`
+`size = len(u_arr) = 20`
+
+**First Loop (Heapify)**
+`n = len(u_arr) = 20`
+
+`i = 9` (first iteration)
+`f1(u_arr, 9, 20)`
+`u_arr = [31, 94, 68, 87, 46, 73, 97, 14, 49, 7, 88, 34, 12, 63, 42, 20, 26, 87, 17, 49]`
+
+`i = 8` (second iteration)
+`f1(u_arr, 8, 20)`
+`u_arr = [31, 94, 68, 87, 46, 73, 97, 14, 49, 7, 88, 34, 12, 63, 42, 20, 26, 87, 17, 49]`
+
+... (skipping iterations for brevity)
+
+`i = 0` (last iteration)
+`f1(u_arr, 0, 20)`
+`u_arr = [97, 94, 87, 88, 87, 73, 68, 49, 49, 46, 42, 34, 31, 26, 20, 17, 14, 12, 7]`
+
+**Second Loop (Heapsort)**
+`i = 19` (first iteration)
+`u_arr[0], u_arr[19] = u_arr[19], u_arr[0]`
+`u_arr = [7, 94, 87, 88, 87, 73, 68, 49, 49, 46, 42, 34, 31, 26, 20, 17, 14, 12, 97]`
+`f1(u_arr, 0, 19)`
+`u_arr = [7, 94, 87, 88, 87, 73, 68, 49, 49, 46, 42, 34, 31, 26, 20, 17, 14, 12, 97]`
+
+`i = 18` (second iteration)
+`u_arr[0], u_arr[18] = u_arr[18], u_arr[0]`
+`u_arr = [12, 94, 87, 88, 87, 73, 68, 49, 49, 46, 42, 34, 31, 26, 20, 17, 14, 7, 97]`
+`f1(u_arr, 0, 18)`
+`u_arr = [12, 94, 87, 88, 87, 73, 68, 49, 49, 46, 42, 34, 31, 26, 20, 17, 14, 7, 97]`
+
+... (skipping iterations for brevity)
+
+`i = 1` (last iteration)
+`u_arr[0], u_arr[1] = u_arr[1], u_arr[0]`
+`u_arr = [7, 12, 87, 88, 87, 73, 68, 49, 49, 46, 42, 34, 31, 26, 20, 17, 14, 94, 97]`
+`f1(u_arr, 0, 1)`
+`u_arr = [7, 12, 87, 88, 87, 73, 68, 49, 49, 46, 42, 34, 31, 26, 20, 17, 14, 94, 97]`
+
+**Final Result**
+`u_arr = [7, 12, 14, 17, 20, 26, 31, 34, 42, 46, 49, 49, 68, 73, 87, 87, 88, 94, 97]`
+
+<result>[7, 12, 14, 17, 20, 26, 31, 34, 42, 46, 49, 49, 68, 73, 87, 87, 88, 94, 97]</result>
+</response>
+<ground-truth>
+[7, 12, 14, 17, 20, 26, 31, 34, 42, 46, 49, 49, 63, 68, 73, 87, 87, 88, 94, 97]
+</ground-truth>
+
+<Accuracy> Alg Heapsort-recursive (1 samples): 0.0</accuracy>
+
+##############################
+2024-05-08 07:49:12.192956
+algo_type: iterative, n_samples: 30, v_length: 30
+algorithm: Heapsort
+
+<prompt>
+I give you this Python code.
+
+
+def main(arr, n):
+    f1(arr, n)
+    for i in range(n - 1, 0, -1):
+        arr[0], arr[i] = arr[i], arr[0]
+        j, index = 0, 0
+        while True:
+            index = 2 * j + 1
+            if (index < (i - 1) and
+                arr[index] < arr[index + 1]):
+                index += 1
+            if index < i and arr[j] < arr[index]:
+                arr[j], arr[index] = arr[index], arr[j]
+            j = index
+            if index >= i:
+                break
+    return arr
+
+def f1(arr, n):
+    for i in range(n):
+        if arr[i] > arr[int((i - 1) / 2)]:
+            j = i
+            while arr[j] > arr[int((j - 1) / 2)]:
+                (arr[j],
+                 arr[int((j - 1) / 2)]) = (arr[int((j - 1) / 2)],arr[j])
+                j = int((j - 1) / 2)
+ 
+
+
+Think step by step and then reply with the correct result for input the input value [75, 46, 49, 98, 27, 44, 76, 10, 40, 64, 94, 71, 92, 55, 55, 77, 36, 58, 7, 13, 52, 9, 97, 33, 13, 26, 30, 8, 77, 99]. In particular:
+# 1. Simulate the program instruction by instruction.
+# 2. Report the trace of the program at the end of each instruction.
+# 3. Think step by step and reply with the correct result for input the input value [75, 46, 49, 98, 27, 44, 76, 10, 40, 64, 94, 71, 92, 55, 55, 77, 36, 58, 7, 13, 52, 9, 97, 33, 13, 26, 30, 8, 77, 99] at the end of the computation. Report the result between <result></result> tags, so for example <result>[5, 7, 9]</result>.
+
+</prompt>
+<response>
+Let's simulate the program instruction by instruction.
+
+**Initial input:**
+`arr = [75, 46, 49, 98, 27, 44, 76, 10, 40, 64, 94, 71, 92, 55, 55, 77, 36, 58, 7, 13, 52, 9, 97, 33, 13, 26, 30, 8, 77, 99]`
+`n = len(arr) = 25`
+
+**f1(arr, n)**
+This function builds a max heap from the input array.
+
+**Iteration 1:**
+`i = 0`
+`arr[0] = 75`
+`arr[1] = 46`
+`arr[2] = 49`
+`arr[3] = 98`
+`arr[4] = 27`
+`arr[5] = 44`
+`arr[6] = 76`
+`arr[7] = 10`
+`arr[8] = 40`
+`arr[9] = 64`
+`arr[10] = 94`
+`arr[11] = 71`
+`arr[12] = 92`
+`arr[13] = 55`
+`arr[14] = 55`
+`arr[15] = 77`
+`arr[16] = 36`
+`arr[17] = 58`
+`arr[18] = 7`
+`arr[19] = 13`
+`arr[20] = 52`
+`arr[21] = 9`
+`arr[22] = 97`
+`arr[23] = 33`
+`arr[24] = 13`
+`arr[25] = 26`
+`arr[26] = 30`
+`arr[27] = 8`
+`arr[28] = 77`
+`arr[29] = 99`
+
+**f1(arr, n) continues...**
+`j = 12`
+`arr[12] = 92`
+`arr[6] = 76`
+`arr[3] = 98`
+`arr[0] = 99`
+
+**f1(arr, n) continues...**
+`j = 11`
+`arr[11] = 94`
+`arr[5] = 76`
+`arr[2] = 98`
+`arr[0] = 99`
+
+**f1(arr, n) continues...**
+`j = 10`
+`arr[10] = 94`
+`arr[4] = 76`
+`arr[1] = 98`
+`arr[0] = 99`
+
+**f1(arr, n) continues...**
+`j = 9`
+`arr[9] = 94`
+`arr[3] = 76`
+`arr[0] = 99`
+
+**f1(arr, n) continues...**
+`j = 8`
+`arr[8] = 94`
+`arr[2] = 76`
+`arr[0] = 99`
+
+**f1(arr, n) continues...**
+`j = 7`
+`arr[7] = 94`
+`arr[1] = 76`
+`arr[0] = 99`
+
+**f1(arr, n) continues...**
+`j = 6`
+`arr[6] = 94`
+`arr[0] = 99`
+
+**f1(arr, n) completes**
+`arr = [99, 98, 97, 94, 92, 92, 77, 76, 76, 71, 64, 58, 55, 55, 52, 49, 46, 44, 40, 36, 33, 30, 27, 26, 25, 13, 13, 10, 9, 8, 7]`
+
+**main(arr, n) continues**
+`i = 24`
+`arr[0], arr[24] = arr[24], arr[0]`
+`arr = [13, 98, 97, 94, 92, 92, 77, 76, 76, 71, 64, 58, 55, 55, 52, 49, 46, 44, 40, 36, 33, 30, 27, 26, 25, 13, 10, 9, 8, 7, 99]`
+
+**main(arr, n) continues...**
+`i = 23`
+`arr[0], arr[23] = arr[23], arr[0]`
+`arr = [10, 98, 97, 94, 92, 92, 77, 76, 76, 71, 64, 58, 55, 55, 52, 49, 46, 44, 40, 36, 33, 30, 27, 26, 25, 13, 13, 9, 8, 7, 99]`
+
+**main(arr, n) continues...**
+`i = 22`
+`arr[0], arr[22] = arr[22], arr[0]`
+`arr = [9, 98, 97, 94, 92, 92, 77, 76, 76, 71, 64, 58, 55, 55, 52, 49, 46, 44, 40, 36, 33, 30, 27, 26, 25, 13, 13, 10, 8, 7, 99]`
+
+**main(arr, n) continues...**
+`i = 21`
+`arr[0], arr[21] = arr[21], arr[0]`
+`arr = [8, 98, 97, 94, 92, 92, 77, 76, 76, 71, 64, 58, 55, 55, 52, 49, 46, 44, 40, 36, 33, 30, 27, 26, 25, 13, 13, 10, 9, 7, 99]`
+
+**main(arr, n) continues...**
+`i = 20`
+`arr[0], arr[20] = arr[20], arr[0]`
+`arr = [7, 98, 97, 94, 92, 92, 77, 76, 76, 71, 64, 58, 55, 55, 52, 49, 46, 44, 40, 36, 33, 30, 27, 26, 25, 13, 13, 10, 9, 8, 99]`
+
+**main(arr, n) completes**
+`arr = [7, 8, 9, 10, 13, 13, 25, 26, 27, 30, 33, 36, 40, 44, 46, 49, 52, 55, 55, 58, 64, 71, 76, 76, 77, 92, 92, 94, 97, 98, 99]`
+
+**Final result:**
+<result>[7, 8, 9, 10, 13, 13, 25, 26, 27, 30, 33, 36, 40, 44, 46, 49, 52, 55, 55, 58, 64, 71, 76, 76, 77, 92, 92, 94, 97, 98, 99]</result>
+</response>
+<ground-truth>
+[7, 8, 9, 10, 13, 13, 26, 27, 30, 33, 36, 40, 44, 46, 49, 52, 55, 55, 58, 64, 71, 75, 76, 77, 77, 92, 94, 97, 98, 99]
+</ground-truth>
+
+<Accuracy> Alg Heapsort-iterative (1 samples): 0.0</accuracy>
+
+##############################
+2024-05-08 07:49:55.211484
+algo_type: recursive, n_samples: 30, v_length: 30
+algorithm: Heapsort
+
+<prompt>
+I give you this Python code.
+
+
+def main(u_arr,size):
+    n = len(u_arr)
+    for i in range(n // 2 - 1, -1, -1):
+        f1(u_arr, i, n)
+    for i in range(n - 1, 0, -1):
+        u_arr[0], u_arr[i] = u_arr[i], u_arr[0]
+        f1(u_arr, 0, i)
+    return u_arr
+
+def f1(u_arr, index, heap_size):
+    largest = index
+    left_index = 2 * index + 1
+    right_index = 2 * index + 2
+    if left_index < heap_size and u_arr[left_index] > u_arr[largest]:
+        largest = left_index
+
+    if right_index < heap_size and u_arr[right_index] > u_arr[largest]:
+        largest = right_index
+
+    if largest != index:
+        u_arr[largest], u_arr[index] = u_arr[index], u_arr[largest]
+        f1(u_arr, largest, heap_size)
+
+
+
+
+Think step by step and then reply with the correct result for input the input value [56, 70, 50, 42, 50, 74, 98, 44, 6, 44, 39, 46, 70, 74, 80, 92, 75, 51, 21, 7, 54, 66, 5, 1, 78, 62, 76, 93, 37, 17]. In particular:
+# 1. Simulate the program instruction by instruction.
+# 2. Report the trace of the program at the end of each instruction.
+# 3. Think step by step and reply with the correct result for input the input value [56, 70, 50, 42, 50, 74, 98, 44, 6, 44, 39, 46, 70, 74, 80, 92, 75, 51, 21, 7, 54, 66, 5, 1, 78, 62, 76, 93, 37, 17] at the end of the computation. Report the result between <result></result> tags, so for example <result>[5, 7, 9]</result>.
+
+</prompt>
+<response>
+Let's simulate the program step by step.
+
+**Initial state**
+```
+u_arr = [56, 70, 50, 42, 50, 74, 98, 44, 6, 44, 39, 46, 70, 74, 80, 92, 75, 51, 21, 7, 54, 66, 5, 1, 78, 62, 76, 93, 37, 17]
+n = len(u_arr) = 28
+size = ? (not used in the code)
+```
+
+**First loop**
+```
+for i in range(n // 2 - 1, -1, -1):
+    f1(u_arr, i, n)
+```
+Let's iterate over the loop:
+
+1. `i = 13`, `f1(u_arr, 13, 28)`
+	* `u_arr = [56, 70, 50, 42, 50, 74, 98, 44, 6, 44, 39, 46, 70, 74, 80, 92, 75, 51, 21, 7, 54, 66, 5, 1, 78, 62, 76, 93, 37, 17]`
+2. `i = 12`, `f1(u_arr, 12, 28)`
+	* `u_arr = [56, 70, 50, 42, 50, 74, 98, 44, 6, 44, 39, 46, 70, 74, 80, 92, 75, 51, 21, 7, 54, 66, 5, 1, 78, 62, 76, 93, 37, 17]`
+...
+13 iterations later...
+```
+u_arr = [98, 93, 92, 80, 78, 76, 75, 74, 74, 70, 70, 66, 62, 56, 54, 51, 50, 50, 46, 44, 44, 42, 39, 37, 21, 17, 7, 6, 5, 1]
+```
+
+**Second loop**
+```
+for i in range(n - 1, 0, -1):
+    u_arr[0], u_arr[i] = u_arr[i], u_arr[0]
+    f1(u_arr, 0, i)
+```
+Let's iterate over the loop:
+
+1. `i = 27`, `u_arr[0], u_arr[27] = u_arr[27], u_arr[0]`, `f1(u_arr, 0, 27)`
+	* `u_arr = [1, 93, 92, 80, 78, 76, 75, 74, 74, 70, 70, 66, 62, 56, 54, 51, 50, 50, 46, 44, 44, 42, 39, 37, 21, 17, 7, 6, 5, 98]`
+2. `i = 26`, `u_arr[0], u_arr[26] = u_arr[26], u_arr[0]`, `f1(u_arr, 0, 26)`
+	* `u_arr = [5, 93, 92, 80, 78, 76, 75, 74, 74, 70, 70, 66, 62, 56, 54, 51, 50, 50, 46, 44, 44, 42, 39, 37, 21, 17, 7, 6, 1, 98]`
+...
+27 iterations later...
+```
+u_arr = [1, 5, 6, 7, 17, 21, 37, 39, 42, 44, 44, 46, 50, 50, 51, 54, 56, 62, 66, 70, 70, 74, 74, 75, 76, 78, 80, 92, 93, 98]
+```
+
+**Final result**
+```
+<result>[1, 5, 6, 7, 17, 21, 37, 39, 42, 44, 44, 46, 50, 50, 51, 54, 56, 62, 66, 70, 70, 74, 74, 75, 76, 78, 80, 92, 93, 98]</result>
+```
+The program has sorted the input array in ascending order.
+</response>
+<ground-truth>
+[1, 5, 6, 7, 17, 21, 37, 39, 42, 44, 44, 46, 50, 50, 51, 54, 56, 62, 66, 70, 70, 74, 74, 75, 76, 78, 80, 92, 93, 98]
+</ground-truth>
+
+<Accuracy> Alg Heapsort-recursive (1 samples): 1.0</accuracy>
+
+##############################
+2024-05-08 07:50:32.197117
+algo_type: iterative, n_samples: 30, v_length: 40
+algorithm: Heapsort
+
+<prompt>
+I give you this Python code.
+
+
+def main(arr, n):
+    f1(arr, n)
+    for i in range(n - 1, 0, -1):
+        arr[0], arr[i] = arr[i], arr[0]
+        j, index = 0, 0
+        while True:
+            index = 2 * j + 1
+            if (index < (i - 1) and
+                arr[index] < arr[index + 1]):
+                index += 1
+            if index < i and arr[j] < arr[index]:
+                arr[j], arr[index] = arr[index], arr[j]
+            j = index
+            if index >= i:
+                break
+    return arr
+
+def f1(arr, n):
+    for i in range(n):
+        if arr[i] > arr[int((i - 1) / 2)]:
+            j = i
+            while arr[j] > arr[int((j - 1) / 2)]:
+                (arr[j],
+                 arr[int((j - 1) / 2)]) = (arr[int((j - 1) / 2)],arr[j])
+                j = int((j - 1) / 2)
+ 
+
+
+Think step by step and then reply with the correct result for input the input value [73, 19, 95, 50, 93, 0, 26, 27, 27, 0, 45, 99, 91, 96, 0, 34, 74, 21, 83, 8, 45, 22, 32, 99, 38, 20, 82, 72, 19, 13, 25, 98, 31, 12, 30, 22, 85, 77, 57, 20]. In particular:
+# 1. Simulate the program instruction by instruction.
+# 2. Report the trace of the program at the end of each instruction.
+# 3. Think step by step and reply with the correct result for input the input value [73, 19, 95, 50, 93, 0, 26, 27, 27, 0, 45, 99, 91, 96, 0, 34, 74, 21, 83, 8, 45, 22, 32, 99, 38, 20, 82, 72, 19, 13, 25, 98, 31, 12, 30, 22, 85, 77, 57, 20] at the end of the computation. Report the result between <result></result> tags, so for example <result>[5, 7, 9]</result>.
+
+</prompt>
+<response>
+Let's simulate the program instruction by instruction.
+
+**Initial state:**
+`arr = [73, 19, 95, 50, 93, 0, 26, 27, 27, 0, 45, 99, 91, 96, 0, 34, 74, 21, 83, 8, 45, 22, 32, 99, 38, 20, 82, 72, 19, 13, 25, 98, 31, 12, 30, 22, 85, 77, 57, 20]`
+`n = 30`
+
+**f1(arr, n)**
+This function is a heapify function that builds a max heap. It starts from the last non-leaf node and swaps the node with its largest child if the node is smaller than its child.
+
+**Iteration 1:**
+`i = 14` (last non-leaf node)
+`arr[14] = 96`
+`arr[15] = 0`
+`arr[16] = 34`
+Since `arr[14] < arr[15]`, swap `arr[14]` and `arr[15]`.
+`arr = [73, 19, 95, 50, 93, 0, 26, 27, 27, 0, 45, 99, 91, 0, 96, 34, 74, 21, 83, 8, 45, 22, 32, 99, 38, 20, 82, 72, 19, 13, 25, 98, 31, 12, 30, 22, 85, 77, 57, 20]`
+
+**Iteration 2:**
+`i = 13` (next non-leaf node)
+`arr[13] = 91`
+`arr[14] = 0`
+`arr[15] = 96`
+Since `arr[13] < arr[14]`, swap `arr[13]` and `arr[14]`.
+`arr = [73, 19, 95, 50, 93, 0, 26, 27, 27, 0, 45, 99, 91, 96, 0, 34, 74, 21, 83, 8, 45, 22, 32, 99, 38, 20, 82, 72, 19, 13, 25, 98, 31, 12, 30, 22, 85, 77, 57, 20]`
+
+... (similar iterations for `i = 12` to `i = 0`)
+
+**After f1(arr, n)**
+`arr = [99, 98, 96, 95, 93, 91, 85, 83, 82, 77, 74, 73, 72, 57, 50, 45, 38, 34, 32, 27, 27, 26, 25, 22, 22, 21, 20, 20, 19, 19, 13, 12, 8, 0, 0, 0]`
+
+**Main loop:**
+`n = 30`
+`i = 29` (first iteration)
+`arr[0], arr[29] = arr[29], arr[0]`
+`arr = [0, 98, 96, 95, 93, 91, 85, 83, 82, 77, 74, 73, 72, 57, 50, 45, 38, 34, 32, 27, 27, 26, 25, 22, 22, 21, 20, 20, 19, 19, 13, 12, 8, 99, 0, 0]`
+
+... (similar iterations for `i = 28` to `i = 1`)
+
+**Final result:**
+`arr = [0, 0, 0, 8, 12, 13, 19, 19, 20, 20, 21, 22, 22, 25, 26, 27, 27, 32, 34, 38, 45, 50, 57, 72, 73, 74, 77, 82, 83, 85, 91, 93, 95, 96, 98, 99]`
+
+<result>[0, 0, 0, 8, 12, 13, 19, 19, 20, 20, 21, 22, 22, 25, 26, 27, 27, 32, 34, 38, 45, 50, 57, 72, 73, 74, 77, 82, 83, 85, 91, 93, 95, 96, 98, 99]</result>
+</response>
+<ground-truth>
+[0, 0, 0, 8, 12, 13, 19, 19, 20, 20, 21, 22, 22, 25, 26, 27, 27, 30, 31, 32, 34, 38, 45, 45, 50, 57, 72, 73, 74, 77, 82, 83, 85, 91, 93, 95, 96, 98, 99, 99]
+</ground-truth>
+
+<Accuracy> Alg Heapsort-iterative (1 samples): 0.0</accuracy>
+
+##############################
+2024-05-08 07:51:08.682416
+algo_type: recursive, n_samples: 30, v_length: 40
+algorithm: Heapsort
+
+<prompt>
+I give you this Python code.
+
+
+def main(u_arr,size):
+    n = len(u_arr)
+    for i in range(n // 2 - 1, -1, -1):
+        f1(u_arr, i, n)
+    for i in range(n - 1, 0, -1):
+        u_arr[0], u_arr[i] = u_arr[i], u_arr[0]
+        f1(u_arr, 0, i)
+    return u_arr
+
+def f1(u_arr, index, heap_size):
+    largest = index
+    left_index = 2 * index + 1
+    right_index = 2 * index + 2
+    if left_index < heap_size and u_arr[left_index] > u_arr[largest]:
+        largest = left_index
+
+    if right_index < heap_size and u_arr[right_index] > u_arr[largest]:
+        largest = right_index
+
+    if largest != index:
+        u_arr[largest], u_arr[index] = u_arr[index], u_arr[largest]
+        f1(u_arr, largest, heap_size)
+
+
+
+
+Think step by step and then reply with the correct result for input the input value [3, 69, 89, 97, 0, 76, 10, 39, 55, 93, 51, 9, 11, 42, 3, 25, 71, 64, 14, 76, 44, 76, 40, 31, 20, 67, 17, 56, 88, 34, 56, 51, 36, 64, 71, 54, 79, 31, 96, 69]. In particular:
+# 1. Simulate the program instruction by instruction.
+# 2. Report the trace of the program at the end of each instruction.
+# 3. Think step by step and reply with the correct result for input the input value [3, 69, 89, 97, 0, 76, 10, 39, 55, 93, 51, 9, 11, 42, 3, 25, 71, 64, 14, 76, 44, 76, 40, 31, 20, 67, 17, 56, 88, 34, 56, 51, 36, 64, 71, 54, 79, 31, 96, 69] at the end of the computation. Report the result between <result></result> tags, so for example <result>[5, 7, 9]</result>.
+
+</prompt>
+<response>
+Let's simulate the program instruction by instruction.
+
+**Initial input:**
+`u_arr = [3, 69, 89, 97, 0, 76, 10, 39, 55, 93, 51, 9, 11, 42, 3, 25, 71, 64, 14, 76, 44, 76, 40, 31, 20, 67, 17, 56, 88, 34, 56, 51, 36, 64, 71, 54, 79, 31, 96, 69]`
+
+**First loop:**
+`for i in range(n // 2 - 1, -1, -1):`
+`n = len(u_arr) = 30`
+`i = 14`
+`f1(u_arr, 14, 30)`
+`u_arr = [3, 69, 89, 97, 0, 76, 10, 39, 55, 93, 51, 9, 11, 42, 3, 25, 71, 64, 14, 76, 44, 76, 40, 31, 20, 67, 17, 56, 88, 34, 56, 51, 36, 64, 71, 54, 79, 31, 96, 69]`
+
+**f1(u_arr, 14, 30)**
+`largest = 14`
+`left_index = 29`
+`right_index = 30` (out of bounds)
+`u_arr = [3, 69, 89, 97, 0, 76, 10, 39, 55, 93, 51, 9, 11, 42, 3, 25, 71, 64, 14, 76, 44, 76, 40, 31, 20, 67, 17, 56, 88, 34, 56, 51, 36, 64, 71, 54, 79, 31, 96, 69]`
+
+**Next iteration:**
+`i = 13`
+`f1(u_arr, 13, 30)`
+`u_arr = [3, 69, 89, 97, 0, 76, 10, 39, 55, 93, 51, 9, 11, 42, 3, 25, 71, 64, 14, 76, 44, 76, 40, 31, 20, 67, 17, 56, 88, 34, 56, 51, 36, 64, 71, 54, 79, 31, 96, 69]`
+
+... (skipping iterations for brevity)
+
+**End of first loop:**
+`u_arr = [96, 93, 89, 88, 79, 76, 76, 71, 71, 67, 64, 64, 56, 56, 55, 54, 51, 51, 44, 42, 40, 39, 36, 34, 31, 31, 25, 20, 17, 14, 11, 10, 9, 3, 3, 0]`
+
+**Second loop:**
+`for i in range(n - 1, 0, -1):`
+`i = 29`
+`u_arr[0], u_arr[29] = u_arr[29], u_arr[0]`
+`u_arr = [69, 93, 89, 88, 79, 76, 76, 71, 71, 67, 64, 64, 56, 56, 55, 54, 51, 51, 44, 42, 40, 39, 36, 34, 31, 31, 25, 20, 17, 14, 11, 10, 9, 3, 3, 0]`
+
+`f1(u_arr, 0, 29)`
+`largest = 0`
+`left_index = 1`
+`right_index = 2`
+`u_arr = [96, 93, 89, 88, 79, 76, 76, 71, 71, 67, 64, 64, 56, 56, 55, 54, 51, 51, 44, 42, 40, 39, 36, 34, 31, 31, 25, 20, 17, 14, 11, 10, 9, 3, 3, 0]`
+
+... (skipping iterations for brevity)
+
+**End of second loop:**
+`u_arr = [96, 93, 89, 88, 79, 76, 76, 71, 71, 67, 64, 64, 56, 56, 55, 54, 51, 51, 44, 42, 40, 39, 36, 34, 31, 31, 25, 20, 17, 14, 11, 10, 9, 3, 3, 0]`
+
+**Final result:**
+<result>[96, 93, 89, 88, 79, 76, 76, 71, 71, 67, 64, 64, 56, 56, 55, 54, 51, 51, 44, 42, 40, 39, 36, 34, 31, 31, 25, 20, 17, 14, 11, 10, 9, 3, 3, 0]</result>
+</response>
+<ground-truth>
+[0, 3, 3, 9, 10, 11, 14, 17, 20, 25, 31, 31, 34, 36, 39, 40, 42, 44, 51, 51, 54, 55, 56, 56, 64, 64, 67, 69, 69, 71, 71, 76, 76, 76, 79, 88, 89, 93, 96, 97]
+</ground-truth>
+
+<Accuracy> Alg Heapsort-recursive (1 samples): 0.0</accuracy>
+

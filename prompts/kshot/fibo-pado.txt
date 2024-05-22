@@ -1,0 +1,58 @@
+<cot>Simulate this Python code.
+@code@
+Think step by step and then reply with the output of the function for n=@input@.
+<\cot>
+
+<kshot-cot>Consider the following Python programs: 
+@example1@
+The expected trace of the program looks like this: 
+@trace1@
+The expected output at the end of the computation is @vtrace-value1@.
+
+Another example:
+@example2@
+The expected trace of the program looks like this:
+@trace2@
+The expected output at the end of the computation is @vtrace-value2@.
+
+Another example:
+@example3@
+The expected trace of the program looks like this: 
+@trace3@
+The expected output at the end of the computation is @vtrace-value3@.
+
+Now, simulate this Python code.
+@code@
+Think step by step and then reply with the output of the function for n=@input@.
+<\kshot-cot>
+
+<code>Simulate this Python function.
+@code@
+
+In particular:
+# 1. Simulate the program instruction by instruction.
+# 2. Report the trace of the program at the end of each iteration.
+# 3. Think step by step and then reply with the output of the function for n=@input@.
+<\code>
+
+<kshot-code>Consider the following Python programs: 
+@example1@
+The expected trace of the program looks like this: 
+@trace1@.
+The expected output at the end of the computation is @vtrace-value1@.
+
+Another example:
+@example2@
+The expected trace of the program looks like this: @trace2@.
+The expected output at the end of the computation is @vtrace-value2@.
+
+Another example:
+@example3@
+The expected trace of the program looks like this: @trace3@.
+The expected output at the end of the computation is @vtrace-value3@.
+
+In particular:
+# 1. Simulate the program instruction by instruction.
+# 2. Report the trace of the program at the end of each iteration.
+# 3. Think step by step and then reply with the output of the function for n=@input@.
+</kshot-code>

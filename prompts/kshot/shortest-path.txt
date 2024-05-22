@@ -1,0 +1,47 @@
+<cot>The following lists of nodes @nodes@ and edges @edges@ define a graph. Each element in the list of edges is expressed in the form (i,j,w), and specifies that node i is connected to node j with weight w.
+
+What is the length of the shortest path from node @i@ to node @j@?
+Think step by step and then reply just with the numerical value of the shortest path.
+<\cot>
+
+<kshot-cot>The following lists of nodes @example-nodes1@ and edges @example-edges1@ define a graph. Each element in the list of edges is expressed in the form (i,j,w), and specifies that node i is connected with node j with weight w.
+
+The shortest path between node @example-i1@ and @example-j1@ is @vtrace-value1@. This is how it is computed: 
+@trace1@
+
+Another example: for the lists of nodes @example-nodes2@ and edges @example-edges2@, the shortest path between node @example-i2@ and @example-j2@ is @vtrace-value2@. This is how it is computed: 
+@trace2@
+
+Another example: for the lists of nodes @example-nodes3@ and edges @example-edges3@, the shortest path between node @example-i3@ and @example-j3@ is @vtrace-value3@. This is how it is computed: 
+@trace3@
+
+Now, consider the following lists of nodes @nodes@ and edges @edges@: what is the length of the shortest path from node @i@ to node @j@?
+Think step by step and then reply just with the numerical value of the shortest path.
+<\kshot-cot>
+
+<code>The following lists of nodes @nodes@ and edges @edges@ define a graph. Each element in the list of edges is expressed in the form (i,j,w), and specifies that node i is connected to node j with weight w.
+
+What is the length of the shortest path from node @i@ to node @j@?
+
+In particular:
+# 1. Simulate the shortest path and report the solution at the end of each iteration.
+# 2. Think step by step and reply with the numerical correct result at the end of the computation.
+<\code>
+
+<kshot-code>The following lists of nodes @example-nodes1@ and edges @example-edges1@ define a graph. Each element in the list of edges is expressed in the form (i,j,w), and specifies that node i is connected with node j with weight w.
+
+The shortest path between node @example-i1@ and @example-j1@ is @vtrace-value1@. This is how it is computed: 
+@trace1@
+
+Another example: for the lists of nodes @example-nodes2@ and edges @example-edges2@, the shortest path between node @example-i2@ and @example-j2@ is @vtrace-value2@. This is how it is computed: 
+@trace2@
+
+Another example: for the lists of nodes @example-nodes3@ and edges @example-edges3@, the shortest path between node @example-i3@ and @example-j3@ is @vtrace-value3@. This is how it is computed: 
+@trace3@
+
+Now, consider the following lists of nodes @nodes@ and edges @edges@: what is the length of the shortest path from node @i@ to node @j@?
+
+In particular:
+# 1. Simulate the shortest path and report the solution at the end of each iteration.
+# 2. Think step by step and reply with the numerical correct result at the end of the computation.
+<\kshot-code>

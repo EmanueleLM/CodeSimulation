@@ -1,0 +1,18 @@
+##############################
+2024-05-05 20:02:43.568818
+n_programs: 30, program_length: 30, num_vars: 3, critical_path: 3, program_type: p
+##############################
+2024-05-05 20:02:44.198617
+n_programs: 30, program_length: 30, num_vars: 3, critical_path: 3, program_type: p&c
+##############################
+2024-05-05 22:54:06.335515
+n_programs: 30, program_length: 30, num_vars: 3, critical_path: 3, program_type: p
+##############################
+2024-05-05 22:54:07.319941
+n_programs: 30, program_length: 30, num_vars: 3, critical_path: 3, program_type: p&c
+##############################
+2024-05-06 00:57:03.553652
+n_programs: 30, program_length: 30, num_vars: 3, critical_path: 3, program_type: p
+##############################
+2024-05-06 00:57:04.756313
+n_programs: 30, program_length: 30, num_vars: 3, critical_path: 3, program_type: p&c

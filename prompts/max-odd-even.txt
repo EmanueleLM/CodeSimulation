@@ -1,0 +1,37 @@
+<cot>Find, in the following vector of numbers, the largest odd number followed by an even number. 
+@input@
+If the last element is odd, you can assume an even number follows it. 
+If there are no odd numbers in the array, return -1.
+Think step by step and reply with the correct result. Report the result between <result></result> tags, so for example <result>1</result>.
+</cot>
+
+<kshot-cot>@illustration@
+
+Now, consider the following input vector:
+@input@
+Find the largest odd number followed by an even number.
+If the last element is odd, you can assume an even number follows it. 
+If there are no odd numbers in the array, return -1.
+Think step by step and reply with the correct result. Report the result between <result></result> tags, so for example <result>1</result>.
+</kshot-cot>
+
+<code>Find, in the following vector of numbers, the largest odd number followed by an even number. 
+@input@
+If the last element is odd, you can assume an even number follows it. 
+If there are no odd numbers in the array, return -1.
+In particular:
+# 1. Simulate, instruction by instruction, a program that solves the problem.
+# 2. Report the trace of the execution at the end of each iteration. Report the result between <result></result> tags, so for example <result>1</result>.
+</code>
+
+<kshot-code>@illustration@
+
+Now, consider the following input vector:
+@input@
+Find the largest odd number followed by an even number.
+If the last element is odd, you can assume an even number follows it. 
+If there are no odd numbers in the array, return -1.
+In particular:
+# 1. Simulate, instruction by instruction, a program that solves the problem.
+# 2. Report the trace of the execution at the end of each iteration. Report the result between <result></result> tags, so for example <result>1</result>.
+</kshot-code>

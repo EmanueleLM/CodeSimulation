@@ -1,0 +1,45 @@
+<cot>The following lists of nodes @nodes@ and edges @edges@ define a graph. Each element in the list of edges is expressed in the form (i,j), and specifies that node i is connected to node j.
+Is node @j@ reachable from node @j@?
+Think step by step and then reply with true or false.
+<\cot>
+
+<kshot-cot>The following lists of nodes @example-nodes1@ and edges @example-edges1@ define a graph. Each element in the list of edges is expressed in the form (i,j), and specifies that node i is connected with node j.
+Node @example-i1@ and @example-j1@ is @example-connected-1@ to @vtrace-value1@. This is how it is computed: 
+@trace1@
+
+Another example: for the lists of nodes @example-nodes2@ and edges @example-edges2@, node @example-i2@ is @example-connected-2@ to node @example-j2@. 
+This is how it is computed: 
+@trace2@
+
+Another example: for the lists of nodes @example-nodes3@ and edges @example-edges3@, node @example-i3@ is @example-connected-3@ to node @example-j3@. 
+This is how it is computed: 
+@trace3@
+
+Now, consider the following lists of nodes @nodes@ and edges @edges@: is node @i@ connected to node @j@?
+Think step by step and then reply true or false.
+<\kshot-cot>
+
+<code>The following lists of nodes @nodes@ and edges @edges@ define a graph. Each element in the list of edges is expressed in the form (i,j), and specifies that node i is connected to node j.
+Is node @j@ reachable from node @j@?
+In particular:
+# 1. Simulate the reachability algorithm and report the solution at the end of each iteration.
+# 2. Think step by step and reply, at the end of the computation, with either true or false.
+<\code>
+
+<kshot-code>The following lists of nodes @example-nodes1@ and edges @example-edges1@ define a graph. Each element in the list of edges is expressed in the form (i,j), and specifies that node i is connected with node j.
+Node @example-i1@ and @example-j1@ is @example-connected-1@ to @vtrace-value1@. This is how it is computed: 
+@trace1@
+
+Another example: for the lists of nodes @example-nodes2@ and edges @example-edges2@, node @example-i2@ is @example-connected-2@ to node @example-j2@. 
+This is how it is computed: 
+@trace2@
+
+Another example: for the lists of nodes @example-nodes3@ and edges @example-edges3@, node @example-i3@ is @example-connected-3@ to node @example-j3@. 
+This is how it is computed: 
+@trace3@
+
+Now, consider the following lists of nodes @nodes@ and edges @edges@: is node @i@ connected to node @j@?
+In particular:
+# 1. Simulate the reachability algorithm and report the solution at the end of each iteration.
+# 2. Think step by step and reply, at the end of the computation, with either true or false.
+<\kshot-code>

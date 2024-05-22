@@ -1,9 +1,27 @@
+# Intro
+This repo allows to replicate all the experiments for the paper 'Code Simulation Chiallenges for Large Language Models'.
+You can read the article here: https://arxiv.org/pdf/2401.09074
+
+And cite it with the following bibtex:
+```
+@misc{lamalfa2024code,
+      title={Code Simulation Challenges for Large Language Models}, 
+      author={Emanuele La Malfa and Christoph Weinhuber and Orazio Torre and Fangru Lin and Anthony Cohn and Nigel Shadbolt and Michael Wooldridge},
+      year={2024},
+      eprint={2401.09074},
+      archivePrefix={arXiv},
+      primaryClass={cs.LG}
+}
+```
+
+For any further inquiries, please open an issue on the repo or send me an email at amailaddress0x90@gmail.com
+
 # 1. Install dependencies
 First thing first, you need to install all the dependencies. 
-We encourage creating a virtual environment.
+We encourage creating a virtual environment (venv works fine).
 Then run:
 ```
-pip3 install -r requirements.txt
+pip install -r requirements.txt
 ```
 
 # 2. Insert your key
@@ -13,7 +31,7 @@ For example, add the org and key for GPT-3.5
     "gpt35": {
         "organization": "YOUR ORG", --> your org
         "name":"gpt-3.5-turbo",
-        "key":"YOUT KEY" --> your key
+        "key":"YOUR KEY" --> your LLM key
     }
 ```
 

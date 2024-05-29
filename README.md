@@ -6,7 +6,7 @@ And cite it with the following bibtex:
 ```
 @misc{lamalfa2024code,
       title={Code Simulation Challenges for Large Language Models}, 
-      author={Emanuele La Malfa and Christoph Weinhuber and Orazio Torre and Fangru Lin and Anthony Cohn and Nigel Shadbolt and Michael Wooldridge},
+      author={Emanuele La Malfa and Christoph Weinhuber and Orazio Torre and Fangru Lin and Samuele Marro and Anthony Cohn and Nigel Shadbolt and Michael Wooldridge},
       year={2024},
       eprint={2401.09074},
       archivePrefix={arXiv},

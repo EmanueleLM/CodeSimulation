@@ -1,5 +1,5 @@
 # Intro
-This repo allows to replicate all the experiments for the paper 'Code Simulation Chiallenges for Large Language Models'.
+This repo allows replicating all the experiments for the paper 'Code Simulation Challenges for Large Language Models'.
 You can read the article here: https://arxiv.org/pdf/2401.09074
 
 And cite it with the following bibtex:
@@ -25,7 +25,7 @@ pip install -r requirements.txt
 ```
 
 # 2. Insert your key
-Populate `config_multiple.json` with the appropriate keys for each Language Models you want to use.
+Populate `config_multiple.json` with the appropriate keys for each Language Model you want to use.
 For example, add the org and key for GPT-3.5
 ```
     "gpt35": {
@@ -36,8 +36,8 @@ For example, add the org and key for GPT-3.5
 ```
 
 # 3. Running experiments for straight-line code simulation
-The instructions to run the experiments for all the benchmarks are reported below.
-For simplicity, each benchmark is encapsulated in a standalone python file.
+The instructions for running the experiments for all the benchmarks are reported below.
+For simplicity, each benchmark is encapsulated in a standalone Python file.
 For more information on the arguments to pass to the command line, please run filename.py --help
 
 1. Straight-line code simulation
